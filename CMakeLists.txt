@@ -20,8 +20,8 @@ file(GLOB DATA_FILES
 file(COPY ${DATA_FILES} DESTINATION ${PROJECT_BINARY_DIR})
 
 
-add_executable(sim sim.cc ${sources} ${headers})
+add_executable(Cherenkov sim.cc ${sources} ${headers})
 
-target_link_libraries(sim ${Geant4_LIBRARIES})
+target_link_libraries(Cherenkov ${Geant4_LIBRARIES})
 
-add_custom_target(Simulation DEPENDS sim)
+add_custom_target(Simulation DEPENDS Cherenkov)
