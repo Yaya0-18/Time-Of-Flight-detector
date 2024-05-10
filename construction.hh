@@ -9,7 +9,8 @@
 #include "G4PVPlacement.hh"
 #include "G4NistManager.hh"
 #include "G4GenericMessenger.hh"
-
+#include "G4OpticalSurface.hh"
+#include "G4LogicalSkinSurface.hh"
 
 #include "detector.hh"
 
@@ -23,7 +24,7 @@ public:
     G4LogicalVolume *GetScoringVolume() const {return fScoringVolume;}
 
     virtual G4VPhysicalVolume *Construct();
-    void ConstructCherenkove();
+    void ConstructTOF();
 
 private:
     
@@ -31,14 +32,14 @@ private:
     
     //Defining the variables
        //The boxes 
-            G4Box *solidWorld, *solidRadiator , *solidDetector;
+            G4Box *solidWorld, *solidDetector ;
             
-            G4LogicalVolume *logicWorld , *logicRadiator ,*logicDetector; 
-            G4VPhysicalVolume *physWorld , *physRadiator , *physDetector ;
+            G4LogicalVolume *logicWorld , *logicDetector; 
+            G4VPhysicalVolume *physWorld ,  *physDetector ;
         
         //Material 
-            G4Material *SiO2 , *H2O , *Aerogel, *worldMat ;
-            G4Element *C ;
+            G4Material  *worldMat ;
+            
 
         void DefineMaterial();
         virtual void ConstructSDandField();
@@ -53,7 +54,7 @@ private:
         // Number of Rows and Columns to the optical detector
         G4int nCols,nRows;
         //bool
-        G4bool isCherenkov ;
+        G4bool isTOF ;
 
 
     //Functions 

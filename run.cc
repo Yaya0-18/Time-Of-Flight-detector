@@ -12,7 +12,7 @@ MyRunAction::MyRunAction()
     man->CreateNtupleDColumn("fY");
     man->CreateNtupleDColumn("fZ");
     man->CreateNtupleDColumn("fWlen");
-    //man->CreateNtupleDColumn("fT");
+    man->CreateNtupleDColumn("fT");
     //now we finish the tuble 
     man->FinishNtuple(0);
 

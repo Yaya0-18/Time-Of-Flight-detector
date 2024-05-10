@@ -32,7 +32,7 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
     G4Track *track = aStep->GetTrack();
 
     //to avoid photon enter from outside detector like a strange value for z
-    track->SetTrackStatus(fStopAndKill);
+    //track->SetTrackStatus(fStopAndKill);
     //sensitive volume
     //define 2 step point start and end
     G4StepPoint *preStepPoint  = aStep->GetPreStepPoint();
@@ -60,7 +60,7 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
 
 
     #ifndef G4MULTITHREADED
-        G4cout << " Detector position :" << posDetector <<G4endl;
+        //G4cout << " Detector position :" << posDetector <<G4endl;
     #endif
 
     G4int evt = G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID();
@@ -72,7 +72,7 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
     man->FillNtupleDColumn(0,2,posPhoton[1]);
     man->FillNtupleDColumn(0,3,posPhoton[2]);
     man->FillNtupleDColumn(0,4,wlen);
-    //man->FillNtupleDColumn(0,5,time);
+    man->FillNtupleDColumn(0,5,time);
     man->AddNtupleRow(0);
 
 
