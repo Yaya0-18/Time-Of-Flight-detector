@@ -16,6 +16,7 @@
 
 int main(int argc , char** argv)
 {
+    
     G4UIExecutive *ui = 0;
 
     #ifdef G4MULTITHREADED
@@ -23,18 +24,16 @@ int main(int argc , char** argv)
     #else 
         G4RunManager *runManager = new G4RunManager();
     #endif
+
+
     
     //Initializing 
     runManager->SetUserInitialization(new MyDetectorConstruction());
     runManager->SetUserInitialization(new MyPhysicsList());
     runManager->SetUserInitialization(new MyActionInitialization());
 
-    G4VModularPhysicsList* physics = new QGSP_BERT();
-    runManager->SetUserInitialization(physics);
+    //runManager->Initialize();
 
-
-    
-    
     if(argc == 1 )
     {
         ui = new G4UIExecutive(argc, argv);
@@ -61,6 +60,7 @@ int main(int argc , char** argv)
         
     }
     
+     
     
     return 0;
 

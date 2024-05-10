@@ -29,7 +29,7 @@ MyPrimaryGenerator::~MyPrimaryGenerator()
 
 void MyPrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
 {
-    G4ParticleDefinition *particle = fparticleGun->GetParticleDefinition();
+    //G4ParticleDefinition *particle = fparticleGun->GetParticleDefinition();
 
 
     //tell Geant4 to generate 

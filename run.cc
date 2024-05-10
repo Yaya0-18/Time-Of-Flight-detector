@@ -2,19 +2,21 @@
 
 
 MyRunAction::MyRunAction()
-{
+{   
     G4AnalysisManager *man = G4AnalysisManager::Instance();
 
+    //MC data
     man->CreateNtuple("Photon","Photon");
     man->CreateNtupleIColumn("fEvent");
     man->CreateNtupleDColumn("fX");
     man->CreateNtupleDColumn("fY");
     man->CreateNtupleDColumn("fZ");
     man->CreateNtupleDColumn("fWlen");
-    man->CreateNtupleDColumn("fT");
+    //man->CreateNtupleDColumn("fT");
     //now we finish the tuble 
     man->FinishNtuple(0);
 
+    //measured data
     man->CreateNtuple("Hits","Hits");
     man->CreateNtupleIColumn("fEvent");
     //we can do more but for coordinates :
@@ -23,10 +25,12 @@ MyRunAction::MyRunAction()
     man->CreateNtupleDColumn("fZ");
     //now we finish the tuble 
     man->FinishNtuple(1);
+    
     //to restore energy values
     man->CreateNtuple("Scoring","Scoring");
     man->CreateNtupleDColumn("fEdep");
     man->FinishNtuple(2);
+    
 
 }
 
@@ -37,13 +41,13 @@ void MyRunAction::BeginOfRunAction(const G4Run* run)
 {
     
     G4AnalysisManager *man = G4AnalysisManager::Instance();
-
+    
     G4int runID = run->GetRunID();
     std::stringstream strRunID;
     strRunID << runID;
+    
 
     man->OpenFile("output"+strRunID.str()+".root");
-    
 
 
 }
